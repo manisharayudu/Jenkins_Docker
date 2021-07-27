@@ -8,7 +8,7 @@ agent any
 stages {
 stage('Cloning our Git') {
 steps {
-git 'https://github.com/manisharayudu/Terraform_Jenkins.git'
+git 'https://github.com/manisharayudu/Jenkins_Docker.git', branch:'jenkins_pipeline'
 }
 }
 stage('Building our image') {
