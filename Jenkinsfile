@@ -1,4 +1,9 @@
 pipeline {
+    environment {
+        registry = "manisharayudu12/project1"
+        registryCredential = ‘docker-hub’
+        dockerImage = ''
+    }
     agent any
         stages {
             stage('Cloning our Git') {
@@ -18,7 +23,7 @@ pipeline {
             stage('Deploy our image') {
                 steps {
                     script {
-                        docker.withRegistry( "" ) {
+                        docker.withRegistry( '', registryCredential ) {
                             dockerImage.push()
                         }
                     }
