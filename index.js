@@ -2,7 +2,7 @@
 const express = require('express');
 
 // Constants
-const PORT = 8081;
+const PORT = 3000;
 const HOST = '3.67.84.12';
 
 // App
