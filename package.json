@@ -1,22 +1,13 @@
 {
-  "name": "myapp",
-  "version": "0.0.1",
-  "private": true,
+  "name": "docker_web_app",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "author": "manisha rayudu manisharayudu12@gmail.com",
+  "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "npm install inherits && mocha"
-  },
-  "engines": {
-    "node": "^4.6.1"
+    "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.14.0",
-    "http-errors": "^1.7.0",
-    "mysql": "^2.10.2"
-  },
-  "devDependencies": {
-    "inherits": "^2.0.3",
-    "mocha": "^5.2.0",
-    "ms": "^2.1.1"
+    "express": "^4.16.1"
   }
 }
