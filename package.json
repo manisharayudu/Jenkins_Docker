@@ -18,5 +18,6 @@
   "bugs": {
     "url": "https://github.com/manisharayudu/Jenkins_Docker/issues"
   },
-  "homepage": "https://github.com/manisharayudu/Jenkins_Docker#readme"
+  "homepage": "https://github.com/manisharayudu/Jenkins_Docker#readme",
+  "devDependencies": {}
 }
