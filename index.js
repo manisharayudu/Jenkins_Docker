@@ -1,25 +1,14 @@
-const express = require("express");
+const http = require('http');
 
-const app = express();
+const hostname = '3.67.95.255';
+const port = 3000;
 
-//define port
-const port=3000;
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World, This is my First Project');
+});
 
-app.get("/", (req, res) => {
-
-res.json({message:'Root page'})
-
-})
-
-//get example
-
-app.get("/get-data", (req, res) => {
-
-res.json({message:'Get JSON Example'})
-
-})
-
-//run the application
-app.listen(port, () => {
-  console.log(`running at port ${port}`);
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
 });
