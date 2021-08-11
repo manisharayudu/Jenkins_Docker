@@ -9,5 +9,14 @@
   },
   "dependencies": {
     "express": "^4.16.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manisharayudu/Jenkins_Docker.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manisharayudu/Jenkins_Docker/issues"
+  },
+  "homepage": "https://github.com/manisharayudu/Jenkins_Docker#readme"
 }
