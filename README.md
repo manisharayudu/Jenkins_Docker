@@ -1,4 +1,4 @@
-****Containerized Jenkins Pipeline to push Docker Image into Docker hub using AWS****
+***Containerized Jenkins Pipeline to push Docker Image into Docker hub using AWS***
 
 **Prerequisities**
 
@@ -77,15 +77,60 @@ Now it will be able to access Jenkins through its management interface: As promp
 
 Use the following command to display this password:
 
-7. After running the container we get the password. If we did not get, type docker log <container ID>
+7. After running the container we get the password. If we did not get, type docker logs <container ID> on Terminal.
 
 8. To unlock jenkins use the step 7 process
 
 9. After unlocking install all dependencies.
         Manage Jenkins>> Manage Plugins.
 
-        Available tab>> select Git Integration, Docker, Docker Pipeline and click Install without restart.  
+        Available tab>> select Git Integration, Docker, Docker Pipeline and click Install without restart.
 
 **Jenkins Pipeline**
 
 We need to write Jenkinsfile using declarative pipeline script. This must include the git source, few docker commands to build and run docker image. Also include a command to push it into Docker hub as this is the main aim of our project.
+
+•  We need to write Jenkinsfile using declarative pipeline script. This must include the git source, few docker commands to build and run docker image. Also include a command to push it into Docker hub as this is the main aim of our project.
+
+•  Create a pipeline project in Jenkins. Go to Jenkins Dashboard>New Item>Enter Project name>Select Pipeline>Ok.
+
+•  Enter Description, select GitHub project>Enter project URL
+
+•  Go to Pipeline>Select Pipeline Script from SCM>SCM-Git>Enter Repository URL>Credentials>Add-Jenkins>Enter Username, password and custom ID of Git>Add.
+
+•  Branch has to be changed to *\main as it is the new update of Git and Jenkins by default reads *\master.
+
+•  We have to configure Dockerhub credentials as it is a sensitive information which can’t be shared directly in our file which would be published to Github. For this, Select Pipeline syntax>Sample Step>WithCredentials>Binding>Add-Secret text>Enter Variable>Credentials>Add-Jenkins>Kind>Secret text>Under Secret, Enter dockerhub password>ID-Custom ID>Add>Generate Pipeline Script. This has to be entered in Jenkinsfile.
+
+•  Click on Save and the Click on Build Now and the build would be successful.
+
+***Web Application: Node-js***
+
+Node.js is an open source, cross-platform JavaScript runtime environment that can execute JavaScript code outside of a web browser. It contains default files like index.js, package.json, package-lock.json.
+
+1. index.js: It typically handles your app startup, routing and other functions of your application and does require other modules to add functionality.
+2. package.json: It lists the packages your project depends on, specific versions of a package that project can use using semantic versioning rules makes our build reproducible, and therefore easier to share with other developers.
+3. package-lock.json: It is automatically generated for any operations where npm modifies either the node_modules tree, or package. json.
+
+*Installation of Node-js*
+sudo apt-get install nodejs
+sudo apt-get install npm
+npm init
+npm install express --save
+
+We can also write a Dockerfile to install nodejs application by reading the other files.
+
+**Implementation**
+
+Docker pull from Dockerhub (When build was successful, an image of nodejs app has been pushed into dockerhub repository).
+
+docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -p 3000:3000 manisharayudu12/project1:4 (From my Dockerhub repository)
+
+**OUTPUT**
+
+The tool listens to the port 3000 and exposes a http endpoint and returns the docker containers running locally containing information from each container.
+
+http://<publicDNS>:3000
+OR Use: curl <publicDNS>:3000
+
+You will be able to see the text that you have given in your index.js file.
