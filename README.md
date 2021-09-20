@@ -113,9 +113,9 @@ Node.js is an open source, cross-platform JavaScript runtime environment that ca
 3. package-lock.json: It is automatically generated for any operations where npm modifies either the node_modules tree, or package. json.
 
 *Installation of Node-js*
-sudo apt-get install nodejs
-sudo apt-get install npm
-npm init
+sudo apt-get install nodejs, 
+sudo apt-get install npm, 
+npm init, 
 npm install express --save
 
 We can also write a Dockerfile to install nodejs application by reading the other files.
@@ -130,7 +130,7 @@ docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/
 
 The tool listens to the port 3000 and exposes a http endpoint and returns the docker containers running locally containing information from each container.
 
-http://<publicDNS>:3000
-OR Use: curl <publicDNS>:3000
+http://<<publicDNS>>:3000
+OR Use: curl <<publicDNS>>:3000
 
 You will be able to see the text that you have given in your index.js file.
